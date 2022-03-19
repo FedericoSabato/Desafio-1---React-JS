@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Economica&family=Quicksand:wght@400;500;700&display=swap');
+
+#brandTitle{
+  font-size: 120%;
+}
+.Nav-Bar{
+  background-color: rgba(185,236,188,255);
+  font-family: 'Quicksand', sans-serif;
+  font-size: 120%;
+}
