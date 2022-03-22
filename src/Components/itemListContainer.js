@@ -1,3 +1,5 @@
+import ItemCount from "./ItemCount/ItemCount";
+
 function ItemListContainer(){
     return(
         <main>
