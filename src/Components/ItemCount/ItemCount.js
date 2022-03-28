@@ -1,5 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
+import './ItemCount.css'
+
 
 const ItemCount = ({stock})=>{
     
@@ -23,10 +25,10 @@ const ItemCount = ({stock})=>{
     }
 
     return(
-        <div>
-            <button type="button" class="btn addButton" onClick={onAdd}>+</button>
+        <div className='itemButtons'>
+            <button type="button" class="btn" id='susBut'onClick={onSus}>-</button>
             <p>{count}</p>
-            <button type="button" class="btn susButton" onClick={onSus}>-</button>
+            <button type="button" class="btn" id='addBut' onClick={onAdd}>+</button>
         </div>  
     )
 

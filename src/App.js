@@ -1,19 +1,16 @@
 import './App.css';
 import 'bootstrap';
 import './Components/NavBar/NavBar.css'
-import './Components/ItemCount/ItemCount.css';
 import NavBar from './Components/NavBar/NavBar';
-import Card from './Components/Card/Card';
-import ItemListContainer from './Components/itemListContainer';
+import ItemListContainer from './Components/Items/itemListContainer';
 import ItemCount from './Components/ItemCount/ItemCount';
-
+import ItemList from './Components/Items/ItemList';
 
 function App() {
   return (
     <div className="App">
       <NavBar/>
       <ItemListContainer/>
-      <ItemCount stock={8}/>
     </div>
   );
 }
