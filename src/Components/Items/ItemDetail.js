@@ -1,12 +1,12 @@
 import React, {useState,useEffect} from "react";
 import ItemCount from "../ItemCount/ItemCount";
 
-function Item({productData}){
+function ItemDetail(itemDetail) {
 
-    const {id,title,price,color,image,stock} = productData;
-
+    const {id, title, price, color, image, stock} = itemDetail;
+    
     return(
-        <div className="item" >
+        <div className="itemDetail" >
             <div className="itemImage"> 
                 <img src={image} width='200'></img>
             </div>
@@ -19,6 +19,6 @@ function Item({productData}){
             </div>
         </div>
     )
-};
+}
 
-export default Item;
+export default ItemDetail;

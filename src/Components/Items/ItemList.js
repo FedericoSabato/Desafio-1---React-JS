@@ -7,23 +7,23 @@ function ItemList(){
         {
             id:1,
             title:'Globo Corazón',
-            price:200,
+            price:500,
             color:'Rojo',
-            image:'Images/Globo Corazon Rosa.jpg',
-            stock:6,
+            image:'Images/Globo Corazon Rojo.jpg',
+            stock:10,
         },
         {
             id:2,
             title:'Globo Corazón',
-            price:200,
+            price:500,
             color:'Rosa',
-            image:'Images/Globo Corazon Rojo.jpg',
+            image:'Images/Globo Corazon Rosa.jpg',
             stock:7,
         },
         {
             id:3,
             title:'Globo Corazón',
-            price:200,
+            price:500,
             color:'Verde',
             image:'Images/Globo Corazon Verde.jpg',
             stock:10,
@@ -31,7 +31,7 @@ function ItemList(){
         {
             id:4,
             title:'Globo Corazón',
-            price:200,
+            price:500,
             color:'Negro',
             image:'Images/Globo Corazon Negro.jpg',
             stock:2,
@@ -46,7 +46,8 @@ function ItemList(){
         })
     }
     useEffect(()=>{
-        getProducts().then ((productos)=>{
+        getProducts()
+        .then ((productos)=>{
             setProducts(productos);
         }).finally(()=>{
             console.log("Fin de llamada")
