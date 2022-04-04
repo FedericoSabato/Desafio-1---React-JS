@@ -17,7 +17,7 @@ function ItemDetail({itemDetail}) {
     const filterProductId =()=>{
         return ProductsMock.map((product)=>{
             if(product.id===parseInt(id)){
-                return setProduct(product)
+                return console.log(product);
             }
         })
     }

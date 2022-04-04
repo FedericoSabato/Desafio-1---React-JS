@@ -19,13 +19,13 @@ function NavBar(){
                             <Link to={"/"} class="nav-link active" href="#">Inicio</Link>
                             </li>
                             <li  class="nav-item">
-                            <Link to={"/category/:categoryId"} class="nav-link" href="#">Globos</Link>
+                            <Link to={"/category/1"} class="nav-link" href="#">Globos</Link>
                             </li>
                             <li class="nav-item">
-                            <Link to={"/category/:categoryId"} class="nav-link" href="#">Ambientaciones</Link>
+                            <Link to={"/category/2"} class="nav-link" href="#">Ambientaciones</Link>
                             </li>
                             <li class="nav-item">
-                            <Link to={"/category/:categoryId"} class="nav-link" href="#">Contacto</Link>
+                            <Link to={"/category/3"} class="nav-link" href="#">Contacto</Link>
                             </li>
                         </ul>
                     </div>
