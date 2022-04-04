@@ -1,46 +1,40 @@
 import React, {useState,useEffect} from "react";
 import ItemDetail from "./ItemDetail";
+import ProductsMock from "../../ProductsMock";
 
-function ItemDetailContainer(){
+const ItemDetailContainer = ({id})=>{
+    const [product, setProduct] = useState();
 
-    const mockItem = [
-        {
-            id:1,
-            title:'Globo Corazón',
-            price:500,
-            color:'Rojo',
-            image:'Images/Globo Corazon Rojo.jpg',
-            stock:10,
-        },
-
-    ]
-    const [itemDetail,setItemDetail] = useState([]);
-
-    const getItemDetail =()=>{
-        return new Promise((resolve,reject)=>{
-            return setTimeout(()=>{
-                resolve(mockItem)
-            },2000)
-        })
-    }
-    useEffect(()=>{
-        getItemDetail()
-        .then((detail)=>{
-            setItemDetail(detail);
-        }).finally(()=>{
-            console.log("Fin de llamada")
-        })
-    },[])
+    const searchId = (id, array) => array.find((el) => el.id === id);
     
-    return(
-        <div className="itemDetailContainer">
-            {console.log('ItemDetail:'+itemDetail)}
-            {itemDetail.map((itemDetail)=>{
-                return(
-                    <ItemDetail itemDetail ={itemDetail} key={itemDetail.id}/>
-                )
-            })}
-        </div>
-    )
-};
-export default ItemDetailContainer;
+    const getProducts = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve(ProductsMock);
+    }, 500);
+    });
+
+    const getProductById = async (id, setState) => {
+    try {
+        const result = await getProducts;
+        setState(searchId(id, result));
+    } catch (error) {
+        console.log(error);
+    }
+    };
+
+    useEffect(() => {
+      getProductById(Number(id), setProduct);
+      console.log(product);
+    }, [id]);
+    
+    
+
+    return (
+      <section className="item-detail-container">
+        {product ? <ItemDetail itemDetail={product} /> : <p>Obteniendo producto...</p>}
+      </section>
+    );
+  };
+  
+  export default ItemDetailContainer;
+  

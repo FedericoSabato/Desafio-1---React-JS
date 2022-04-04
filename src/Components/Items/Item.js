@@ -1,22 +1,23 @@
-import React, {useState,useEffect} from "react";
-import ItemCount from "../ItemCount/ItemCount";
+import React from "react";
+import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 function Item({productData}){
 
-    const {id,title,price,color,image,stock} = productData;
+    const {id,title,price,color,image,stock} = productData;   
 
     return(
         <div className="item" >
-            <div className="itemImage"> 
-                <img src={image} width='200'></img>
-            </div>
+            <Link to={"/item/:id"}>
+                <div className="itemImage"> 
+                    <img src={image} width='200'></img>
+                </div>
+            </Link> 
             <div className="itemDescription">
                 <h3>{title}</h3>
                 <h5>{color}</h5>
                 <h4>$ {price}</h4>
-                <ItemCount stock= {stock}/>
-                <button className="btn buyButton">Comprar</button>
-            </div>
+            </div>      
         </div>
     )
 };

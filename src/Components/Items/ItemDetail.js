@@ -1,12 +1,28 @@
-import React, {useState,useEffect} from "react";
+import React from "react";
 import ItemCount from "../ItemCount/ItemCount";
+import { useParams } from "react-router-dom";
+import { useEffect,useState } from "react";
+import ProductsMock from "../../ProductsMock";
 
-function ItemDetail(itemDetail) {
+function ItemDetail({itemDetail}) {
 
-    const {id, title, price, color, image, stock} = itemDetail;
-    
+    const { id,category }=useParams();
+    const {product,setProduct} = useState({});
+
+    const {title,price,color,image,stock} = itemDetail;
+
+    useEffect(()=>{
+        filterProductId();
+    },[id])
+    const filterProductId =()=>{
+        return ProductsMock.map((product)=>{
+            if(product.id===parseInt(id)){
+                return setProduct(product)
+            }
+        })
+    }
     return(
-        <div className="itemDetail" >
+        <div className="item" >
             <div className="itemImage"> 
                 <img src={image} width='200'></img>
             </div>
@@ -19,6 +35,6 @@ function ItemDetail(itemDetail) {
             </div>
         </div>
     )
-}
+};
 
 export default ItemDetail;
