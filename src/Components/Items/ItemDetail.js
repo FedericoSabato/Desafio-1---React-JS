@@ -2,7 +2,11 @@ import React from "react";
 import ItemCount from "../ItemCount/ItemCount";
 import { useParams } from "react-router-dom";
 import { useEffect,useState } from "react";
+import { Link } from 'react-router-dom';
 import ProductsMock from "../../ProductsMock";
+import './Item.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function ItemDetail({itemDetail}) {
 
@@ -22,18 +26,20 @@ function ItemDetail({itemDetail}) {
         })
     }
     return(
-        <div className="item" >
-            <div className="itemImage"> 
-                <img src={image} width='200'></img>
-            </div>
-            <div className="itemDescription">
-                <h3>{title}</h3>
-                <h5>{color}</h5>
-                <h4>$ {price}</h4>
-                <ItemCount stock= {stock}/>
-                <button className="btn buyButton">Comprar</button>
-            </div>
-        </div>
+        <div className="container">
+            <div className="item row" >
+                <div className="itemImage col"> 
+                    <img src={image} width='200'></img>
+                </div>
+                <div className="itemDescription col mt-5">
+                    <h3>{title}</h3>
+                    <h5>{color}</h5>
+                    <h4>$ {price}</h4>
+                    <ItemCount stock= {stock}/>
+                    <Link to={"/cart"}><button className="btn" id='buyButton'>Comprar</button></Link>
+                </div>
+            </div> 
+        </div>  
     )
 };
 
