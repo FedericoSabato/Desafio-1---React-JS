@@ -1,8 +1,12 @@
 import React, {useState,useEffect} from "react";
 import ItemDetail from "./ItemDetail";
 import ProductsMock from "../../ProductsMock";
+import { useParams } from "react-router-dom";
 
-const ItemDetailContainer = ({id})=>{
+const ItemDetailContainer = ()=>{
+
+    const {id}= useParams();
+
     const [product, setProduct] = useState();
 
     const searchId = (id, array) => array.find((el) => el.id === id);

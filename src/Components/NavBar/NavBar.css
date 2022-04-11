@@ -8,3 +8,8 @@
   font-family: 'Quicksand', sans-serif;
   font-size: 120%;
 }
+
+#cartButton{
+  background-color: rgba(185,236,188,255);
+  border: none;
+}

@@ -3,7 +3,6 @@ import Item from "./Item";
 import ProductsMock from "../../ProductsMock";
 
 function ItemList(){
-
     
     const [products, setProducts] = useState([])
     const getProducts = () => {

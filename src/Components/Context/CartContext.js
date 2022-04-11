@@ -8,8 +8,9 @@ const CartProvider = ({children})=>{
     const[cartProducts, setCartProducts]=useState([]);
     
     const addToCart = (product) =>{
-
-        console.log("Ashe",product)
+        console.log("PRODUCTO a agregar",product);
+        setCartProducts(cartProducts => [...cartProducts,product])
+        
     }
 
     const data ={
