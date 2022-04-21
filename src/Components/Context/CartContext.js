@@ -6,16 +6,18 @@ const CartContext = createContext();
 const CartProvider = ({children})=>{
 
     const[cartProducts, setCartProducts]=useState([]);
+    const[finalPrice, setFinalPrice]=useState(0);
     
     const addToCart = (product) =>{
-        console.log("PRODUCTO a agregar",product);
+        console.log("PRODUCTO a agregar"+ product.price);
         setCartProducts(cartProducts => [...cartProducts,product])
-        
+        setFinalPrice(finalPrice +(product.price));
     }
 
     const data ={
         cartProducts,
-        addToCart
+        addToCart,
+        finalPrice
     }
 
     return(
