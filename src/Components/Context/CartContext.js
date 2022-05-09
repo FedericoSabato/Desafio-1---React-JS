@@ -8,10 +8,11 @@ const CartProvider = ({children})=>{
     const[cartProducts, setCartProducts]=useState([]);
     const[finalPrice, setFinalPrice]=useState(0);
     
-    const addToCart = (product) =>{
+    const addToCart = (product,productQuantity) =>{
+        product.qty = productQuantity;
         console.log("PRODUCTO a agregar"+ product.price);
         setCartProducts(cartProducts => [...cartProducts,product])
-        setFinalPrice(finalPrice +(product.price));
+        setFinalPrice(finalPrice +(product.price*productQuantity));
     }
 
     const data ={

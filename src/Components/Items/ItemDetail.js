@@ -4,20 +4,20 @@ import { useParams } from "react-router-dom";
 import { useContext } from "react";
 import CartContext from "../Context/CartContext";
 import { useEffect,useState } from "react";
-import { Link } from 'react-router-dom';
 import ProductsMock from "../../ProductsMock";
 import './Item.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import database from "../../Firebase";
 
 function ItemDetail({itemDetail}) {
 
     const { id,category }=useParams();
     const {product,setProduct} = useState({});
+    const [productQuantity, setProductQuantity] = useState(0);
 
     const {cartProducts,addToCart} = useContext(CartContext);
 
-    const {title,price,color,image,stock} = itemDetail;
+    const {title,price,color,image,stock,qty} = itemDetail;
 
     useEffect(()=>{
         filterProductId();
@@ -30,13 +30,19 @@ function ItemDetail({itemDetail}) {
             }
         })
     }
-
-    const addToCartArray = (e) => {
-        
-        e.stopPropagation();
-        addToCart(itemDetail);
-        
+    
+    const onAdd = (e, count) => {
+        if(!!e & productQuantity<1){
+            setProductQuantity(count);
+        }
     }
+    //useEffect
+    useEffect(()=>{
+        if(productQuantity>0){
+            addToCart(itemDetail,productQuantity);
+        }
+    },[productQuantity])
+
 
     return(
         <div className="container">
@@ -48,8 +54,7 @@ function ItemDetail({itemDetail}) {
                     <h3>{title}</h3>
                     <h5>{color}</h5>
                     <h4>$ {price}</h4>
-                    <ItemCount stock= {stock}/>
-                    <button className="btn" id='buyButton' onClick={addToCartArray}>Comprar</button>
+                    <ItemCount stock= {stock} action={onAdd}/>
                 </div>
             </div> 
         </div>  

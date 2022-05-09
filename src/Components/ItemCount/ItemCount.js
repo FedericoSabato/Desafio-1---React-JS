@@ -2,14 +2,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
 import './ItemCount.css'
 
-
-const ItemCount = ({stock})=>{
+const ItemCount = ({stock,action}) =>{
     
     const [count,setCount] = useState(1);
 
     const onAdd =()=> {
         if(stock>count){
             setCount(count +1);
+            
         }
         else{
             alert('Ya no hay stock');
@@ -29,6 +29,7 @@ const ItemCount = ({stock})=>{
             <button type="button" class="btn" id='susBut'onClick={onSus}>-</button>
             <p>{count}</p>
             <button type="button" class="btn" id='addBut' onClick={onAdd}>+</button>
+            <button className="btn" id='buyButton' onClick={(e) => action(e, count)} >Comprar</button>
         </div>  
     )
 
