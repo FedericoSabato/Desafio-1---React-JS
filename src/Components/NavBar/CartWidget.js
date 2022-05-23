@@ -1,9 +1,8 @@
+import '../NavBar/NavBar.css'
+
 const CartWidget = () => {
     return(
-        <div>
-            <img className="cartWidget" src="Images/Cart.png" height={50}/>
-        </div>
+            <img className="cartWidget" src="../Images/Cart.png" height={50}/>
     )
 };
-
 export default CartWidget;

@@ -1,3 +1,51 @@
+#deleteButton{
+    background-color: rgba(185,236,188,255);
+    border: none;
+    height: 100px;
+    margin: 10px;
+}
+
+.cartItem{
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cartitemDescription{
+    width: 80%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+.cartitemImage{
+    width: 100px;
+}
+.qty{
+    font-weight: 400;
+    color: darkgrey;
+}
+.itemTitle{
+    width: 300px;
+    margin-right: 750px;
+}
+.price h3{
+    font-weight: 200;
+}
+.carttitlePrice{
+    display: flex;
+    align-items: center;
+}
+.buyDiv{
+    display: flex;
+    justify-content: flex-end;
+}
+.priceDesc{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10%;
+    flex-direction: column;
+    width: max-content;
+}
 #button{
     background-color: rgba(185,236,188,255);
     border: none;

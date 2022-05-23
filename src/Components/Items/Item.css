@@ -1,7 +1,25 @@
-.item{
-    display: flex;
-    flex-wrap: wrap;
-}
 #buyButton{
     background-color: rgba(185,236,188,255);
+}
+.item{
+    margin: 0;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.itemDescription{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    width: max-content;
+}
+.container:hover{
+    transform: scale(1.05);
+    border: 2px gray solid;
+    border-radius: 20px;
 }

@@ -1,13 +1,13 @@
 import './App.css';
 import 'bootstrap';
-import './Components/NavBar/NavBar.css'
 import NavBar from './Components/NavBar/NavBar';
-import Home from './pages/Home';
+import Home from './Components/pages/Home'
 import ItemDetailContainer from './Components/Items/ItemDetailContainer';
 import {BrowserRouter,Routes,Route} from "react-router-dom";
 import { CartProvider } from './Components/Context/CartContext';
 import Cart from './Components/Cart/Cart';
 import CategoryHandler from './Components/Categories/CategoryHandler';
+import Footer from './Components/Footer/Footer';
 
 function App() {
 
@@ -25,6 +25,7 @@ function App() {
           </Routes>
         </BrowserRouter>
       </CartProvider>
+      <Footer/>
   </div>
   );
 }

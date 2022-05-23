@@ -2,6 +2,7 @@ import React, {useState,useEffect} from "react";
 import Item from "./Item";
 import { collection,getDocs} from "firebase/firestore";
 import database from "../../Firebase";
+import './ItemList.css'
 
 function ItemList(){
     

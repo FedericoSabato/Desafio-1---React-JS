@@ -9,16 +9,28 @@ const CartProvider = ({children})=>{
     const[finalPrice, setFinalPrice]=useState(0);
     
     const addToCart = (product,productQuantity) =>{
+
         product.qty = productQuantity;
-        console.log("PRODUCTO a agregar"+ product.price);
         setCartProducts(cartProducts => [...cartProducts,product])
         setFinalPrice(finalPrice +(product.price*productQuantity));
     }
 
+    const deleteProduct =(product,productQuantity) =>{
+
+        setFinalPrice(finalPrice - (product.price*product.qty))
+
+        setCartProducts(cartProducts.filter((cartProduct)=>{
+            
+        return cartProduct.id !== product.id    
+
+    }))
+    }
+    
     const data ={
         cartProducts,
         addToCart,
-        finalPrice
+        finalPrice,
+        deleteProduct
     }
 
     return(

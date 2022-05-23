@@ -1,0 +1,23 @@
+.detailContainer{
+    margin: 0 auto;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.itemDetail{
+    margin-top: 5%;
+    border: 5px rgba(185,236,188,255) solid;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+}
+.itemDescription{
+    display: flex;
+    align-items: center;
+    margin: 25px;
+}
+.image{
+    width: 350px;
+}

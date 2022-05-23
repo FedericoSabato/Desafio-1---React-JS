@@ -1,7 +1,8 @@
-import ItemListContainer from "../Items/itemListContainer";
 import { useParams } from "react-router-dom";
 import { useState,useEffect } from "react";
-import ProductsMock from "../../ProductsMock";
+import Balloons from "../pages/Balloons";
+import Deco from "../pages/Deco";
+import Contact from "../pages/Contact";
 
 function CategoryHandler(){
 
@@ -11,13 +12,21 @@ function CategoryHandler(){
 
     console.log("cat:"+catId);
 
-    return(
-
-        <div>
-            <h1>{catId}</h1>
-        </div>
-        
-    )
+    if(catId=='globos'){
+        return(
+            <Balloons/>
+        )
+    }
+    if(catId=='ambientaciones'){
+        return(
+            <Deco/>
+        )
+    }
+    if(catId=='contacto'){
+        return(
+            <Contact/>
+        )
+    }
 
 }
 export default CategoryHandler;

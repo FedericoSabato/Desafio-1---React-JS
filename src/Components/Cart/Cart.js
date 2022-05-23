@@ -8,7 +8,7 @@ import { addDoc,collection } from "firebase/firestore";
 
 function Cart(){
 
-    const {cartProducts} = useContext(CartContext);
+    const {cartProducts,deleteProduct} = useContext(CartContext);
     const {finalPrice} = useContext(CartContext);
     const [orderOk,setorderOk] = useState(false);
     const [value,setValue] = useState();
@@ -32,20 +32,6 @@ function Cart(){
         }),
         total: finalPrice
     })
-
-    const deleteFromCart= (e) =>{ 
-
-        e.stopPropagation();
-        let newCartProducts = [];
-        setValue(e.target.value);
-
-        cartProducts.map((products)=>{
-
-            cartProducts = cartProducts.filter((products) => products.id !== value);
-            console.log('nuevo array: ', newCartProducts)
-            
-        })
-    }
 
     const handleChange = (e) =>{
         
@@ -84,26 +70,30 @@ function Cart(){
         <div className="cartProducts">
             {cartProducts.map((products)=>{
                 return(
-                    <div className="item" key={products.id}>
-                        <div className="itemImage"> 
-                            <img src={products.image} width='200'></img>
+                    <div className="cartItem" key={products.id}>
+                        <div> 
+                            <img className="cartitemImage" src={products.image} width='200'></img>
                         </div>
-                        <div className="itemDescription">
-                            <h3>{products.title}</h3>
-                            <h5>{products.color}</h5>
-                            <h4>$ {products.price * products.qty}</h4>
-                            <h4>Cantidad: {products.qty}</h4>
+                        <div className="cartitemDescription">
+                            <div className="carttitlePrice">
+                                <h3 className="itemTitle">{products.title} {products.color}</h3>
+                                <div ><h3>$ {products.price * products.qty}</h3></div>
+                                
+                            </div>
+                            <h4 className="qty">{products.qty} Unidades</h4>                        
                         </div>
-                        <button id="button" onClick={deleteFromCart} value={products.id} >x</button>
+                        <button id="deleteButton" onClick={()=>deleteProduct(products)}>x</button>
                     </div>
                 )
             })}
 
             <div>
-                <div>
-                    <div>Precio Final:</div>
-                    <p className="price">$ {finalPrice}</p>
-                    <button className="btn" id="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Realizar Compra</button>
+                <div className="buyDiv">
+                    <div className="priceDesc">
+                        <h5>Precio Final: $ {finalPrice}</h5>
+                        <button className="btn" id="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Realizar Compra</button>
+                    </div>
+                    
                     {console.log(order)}
                     <div className="modal" tabindex="-1" id="exampleModal" >
                         <div className="modal-dialog">

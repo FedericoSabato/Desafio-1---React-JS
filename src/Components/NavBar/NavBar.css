@@ -13,3 +13,15 @@
   background-color: rgba(185,236,188,255);
   border: none;
 }
+.cartIcons{
+  width:100px;
+
+}
+.cartWidget{
+  display: flex;
+  align-items: center;
+}
+.cartTotalPrice{
+  display: flex;
+  align-items:flex-start;
+}

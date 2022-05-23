@@ -1,4 +1,4 @@
-import ItemListContainer from "../Components/Items/itemListContainer";
+import ItemListContainer from "../Items/itemListContainer";
 
 function Balloons(){
     return(

@@ -5,7 +5,7 @@ const ProductsMock = [
                 category: 'globos',
                 price:500,
                 color:'Rojo',
-                image:'Images/Globo Corazon Rojo.jpg',
+                image:'public/Images/Globo Corazon Rojo.jpg',
                 stock:10,
                 type:'globos',
             },

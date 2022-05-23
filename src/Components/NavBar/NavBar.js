@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../NavBar/NavBar.css'
 import CartWidget from './CartWidget';
 import { Link } from 'react-router-dom';
 import { useContext } from "react";
@@ -33,13 +34,12 @@ function NavBar(){
                             </li>
                         </ul>
                     </div>
-                    <div>
-                        <div>
+                    <div className='cartI'>
+                        <div className="cartWidget">
+                            <div>{cartProducts.length}</div>
                             <Link to={"/cart"} id='cartButton'><CartWidget/></Link>
                         </div>
-                        <div>
-                            <p>{cartProducts.length}</p>
-                        </div>
+                            
                     </div>
                     
                 </div>

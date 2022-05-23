@@ -5,9 +5,8 @@ import { useContext } from "react";
 import CartContext from "../Context/CartContext";
 import { useEffect,useState } from "react";
 import ProductsMock from "../../ProductsMock";
-import './Item.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import database from "../../Firebase";
+import './ItemDetail.css'
 
 function ItemDetail({itemDetail}) {
 
@@ -45,12 +44,12 @@ function ItemDetail({itemDetail}) {
 
 
     return(
-        <div className="container">
-            <div className="item row" >
-                <div className="itemImage col"> 
-                    <img src={image} width='200'></img>
+        <div className="detailContainer">
+            <div className="itemDetail" >
+                <div className="itemImage"> 
+                    <img className ='image'src={`../${image} `} width='200'></img>
                 </div>
-                <div className="itemDescription col mt-5">
+                <div className="itemDescription ">
                     <h3>{title}</h3>
                     <h5>{color}</h5>
                     <h4>$ {price}</h4>
